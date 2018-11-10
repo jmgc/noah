@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.7)
 
-project(noah VERSION 0.5.0)
+project(noah VERSION 0.5.1)
 
 configure_file(bin/noah.in ${PROJECT_SOURCE_DIR}/bin/noah @ONLY)
 configure_file(include/version.h.in ${PROJECT_SOURCE_DIR}/include/version.h)
@@ -37,6 +37,7 @@ target_link_libraries(noah pthread "-framework Hypervisor")
 
 install(PROGRAMS bin/noah DESTINATION bin)
 install(TARGETS noah DESTINATION libexec)
+install(FILES man/noah.1 DESTINATION ${CMAKE_INSTALL_PREFIX}/man/man1)
 
 enable_testing()
 add_subdirectory(test)
